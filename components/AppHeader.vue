@@ -1,4 +1,20 @@
 <script>
+
+  // const eventSize = defineProps({
+  //   type: Number,
+  //   require: true
+  // });
+  
+  export default {
+    name: "Header",
+    props: {
+      eventSize: {
+        type: Number,
+        required: true
+      }
+    }
+  }
+  
 </script>
 
 
@@ -12,12 +28,12 @@
         <NuxtLink to="/">Home</NuxtLink>
         <NuxtLink to="/about">About</NuxtLink>
         <NuxtLink to="/events">Events</NuxtLink>
-        <NuxtLink to="/contact">Support</NuxtLink>
+        <NuxtLink to="/support">Support</NuxtLink>
       </nav>
       <span class="header__profile-container">
-        <NuxtLink to="shopping-cart" class="header__shopping-cart-button">
-          <img src="../assets/shoppingCart.png" alt="Shopping cart icon" class="header__shopping-cart-icon">
-          <p class="header__shopping-cart-counter">5</p>
+        <NuxtLink to="my-events" class="header__shopping-cart-button">
+          <img src="../assets/eventIcon.png" alt="Shopping cart icon" class="header__shopping-cart-icon">
+          <p class="header__shopping-cart-counter">{{ eventSize }}</p>
         </NuxtLink>
         <img src="../assets/userProfilePicture.jpeg" alt="Profile Picture" class="header__profile-picture">
       </span>
@@ -94,7 +110,7 @@
   }
 
   .header__shopping-cart-icon {
-    width: 24px;
+    width: 30px;
   }
 
   .header__shopping-cart-counter {

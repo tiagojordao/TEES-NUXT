@@ -1,5 +1,5 @@
 <template>
-    <h1 class="home__title">ABOUT</h1>
+    <h1 class="home__title">SUPPORT</h1>
 </template>
 
 <style>
