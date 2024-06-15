@@ -19,7 +19,8 @@
     },
     provide() {
       return {
-        updateEvent: this.updateEvent
+        updateEvent: this.updateEvent,
+        userEventList: this.userEvents
       };
     },
     methods: {
