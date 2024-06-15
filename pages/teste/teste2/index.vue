@@ -1,3 +1,3 @@
 <template>
-    lalalala
+    Test Page
 </template>

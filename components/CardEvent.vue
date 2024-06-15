@@ -8,8 +8,8 @@
             <h3 class="card__subtitle">
                 {{ description }}
             </h3>
-            <button class="card__button-sign-up">
-                SIGN UP
+            <button @click="updateParent" class="card__button-sign-up" :class="{disabled: isDisabled}">
+                SUBSCRIBE
             </button>
         </div>
     </div>
@@ -28,6 +28,21 @@ export default {
       type: String,
       required: true,
       default: "Event description"
+    }
+  },
+  inject: ['updateEvent'],
+  methods: {
+    updateParent() {
+      this.updateEvent({
+        title: this.title,
+        description: this.description
+      });
+      this.isDisabled = true;
+    }
+  },
+  data() {
+    return {
+      isDisabled: false
     }
   }
 }

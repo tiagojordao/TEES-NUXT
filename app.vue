@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AppHeader/>
+    <AppHeader :eventSize=userEvents.length />
     <section class="main__section">
       <div class="main__content">
           <NuxtPage />
@@ -11,16 +11,23 @@
 </template>
 
 <script>
-import events from '~/static/mock-data/events.json';
-
-export default {
-  data() {
-    return {
-      events
+  export default {
+    data() {
+      return {
+        userEvents: [],
+      }
+    },
+    provide() {
+      return {
+        updateEvent: this.updateEvent
+      };
+    },
+    methods: {
+      updateEvent(newEvent) {
+        this.userEvents.push(newEvent);
+      }
     }
   }
-}
-
 </script>
 
 <style>
@@ -53,5 +60,11 @@ export default {
     max-width: 1200px;
     margin: 0 auto;
     margin-top: 40px;
+  }
+  .disabled {
+    border: 1px solid #999999 !important;
+    background-color: #cccccc !important;
+    color: #666666 !important;
+    pointer-events: none;
   }
 </style>
